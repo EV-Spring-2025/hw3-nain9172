@@ -1,36 +1,17 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/SdXSjEmH)
-# EV-HW3: PhysGaussian
+I chose the materials jelly(ficus) an metal(plane) to simulate. The parameters were be edited in the config files ficus_config.json and plane_config.json. For jelly, I change the grid_v_damping_scale to 0.7 and 1.2(default is 0.9999). I also tried to set substep_dt to 1e-5(default is 1e-4), if I make it bigger of smaller, the running time of the code will increase considerably, so I just set one different substep_dt to run the code. The videos' links are below.  
+defalut: https://youtube.com/shorts/K5uHghWVpr4?feature=share  
+grid_v_damping_scale=0.7: https://youtube.com/shorts/Hq0V8PFoKqs?feature=share  
+grid_v_damping_scale=1.2: https://youtube.com/shorts/8Wfd_K4I_yo?feature=share  
+substep_dt=1e-5: https://youtube.com/shorts/lO_P9qfd5D4?feature=share  
+I observed that grid_v_damping_scale mainly affect the amplitude that the branches swing. When grid_v_damping_scale inceased, the branches swang more obviously, while it almost not move when the value decreased. When I changed the substep_dt, the object is also motionless but I am not sure about the reason. The PSNR compared with the default video is:  
+grid_v_damping_scale=0.7: 22.22dB  
+grid_v_damping_scale=1.2: 20.30dB  
+substep_dt=1e-5: 20.98dB
 
-This homework is based on the recent CVPR 2024 paper [PhysGaussian](https://github.com/XPandora/PhysGaussian/tree/main), which introduces a novel framework that integrates physical constraints into 3D Gaussian representations for modeling generative dynamics.
-
-You are **not required** to implement training from scratch. Instead, your task is to set up the environment as specified in the official repository and run the simulation scripts to observe and analyze the results.
-
-
-## Getting the Code from the Official PhysGaussian GitHub Repository
-Download the official codebase using the following command:
-```
-git clone https://github.com/XPandora/PhysGaussian.git
-```
-
-
-## Environment Setup
-Navigate to the "PhysGaussian" directory and follow the instructions under the "Python Environment" section in the official README to set up the environment.
-
-
-## Running the Simulation
-Follow the "Quick Start" section and execute the simulation scripts as instructed. Make sure to verify your outputs and understand the role of physics constraints in the generated dynamics.
-
-
-## Homework Instructions
-Please complete Part 1–2 as described in the [Google Slides](https://docs.google.com/presentation/d/13JcQC12pI8Wb9ZuaVV400HVZr9eUeZvf7gB7Le8FRV4/edit?usp=sharing).
-
-
-# Reference
-```bibtex
-@inproceedings{xie2024physgaussian,
-    title     = {Physgaussian: Physics-integrated 3d gaussians for generative dynamics},
-    author    = {Xie, Tianyi and Zong, Zeshun and Qiu, Yuxing and Li, Xuan and Feng, Yutao and Yang, Yin and Jiang, Chenfanfu},
-    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-    year      = {2024}
-}
-```
+And for the metal simulation, I set substep_dt to 2e-4 adn n_grid to 100. The videos' links are below.  
+default: https://youtube.com/shorts/y8IX0a19VFQ?feature=share  
+substep_dt=2e-4: https://youtube.com/shorts/LKNxD0sKtvo?feature=share  
+n_grid=100: https://youtube.com/shorts/5yznh-aypa8?feature=share
+In this three videos, I didn't observe any obvious difference. The PSNR compared with the default video is:  
+substep_dt=2e-4: 28.82dB  
+n_grid=100: 27.72dB
